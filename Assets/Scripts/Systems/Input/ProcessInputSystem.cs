@@ -15,7 +15,7 @@ public class ProcessInputSystem : ReactiveSystem<InputEntity> {
     var input = inputEntity.input;
 
     var position = new Vector2(input.x, input.y);
-		var entitiesWithPosition = BoardLogic.GetEntitiesWithPosition(_contexts.game, position);
+    var entitiesWithPosition = BoardLogic.GetEntitiesWithPosition(_contexts.game, position);
     foreach (var entity in entitiesWithPosition) {
       if(entity != null && entity.isInteractive) {
         entity.isDestroyed = true;

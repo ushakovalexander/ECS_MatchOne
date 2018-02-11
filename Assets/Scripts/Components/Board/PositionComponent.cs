@@ -3,5 +3,5 @@ using UnityEngine;
 
 [Game]
 public class PositionComponent : IComponent {
-	public Vector2 value;
+  public Vector2 value;
 }

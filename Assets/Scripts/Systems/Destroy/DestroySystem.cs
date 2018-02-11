@@ -6,13 +6,13 @@ public class DestroySystem : ReactiveSystem<GameEntity> {
   private Contexts _contexts;
 
   public DestroySystem(Contexts contexts) : base(contexts.game){
-		_contexts = contexts;
+    _contexts = contexts;
   }
 
   protected override void Execute(List<GameEntity> entities) {
     foreach (var entity in entities) {
-			entity.Destroy();
-		}
+      entity.Destroy();
+    }
   }
 
   protected override bool Filter(GameEntity entity)   {

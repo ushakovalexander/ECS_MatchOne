@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class FillSystem : ReactiveSystem<GameEntity>
 {
- 	private Contexts _contexts;
+   private Contexts _contexts;
 
   public FillSystem(Contexts contexts) : base(contexts.game) {
-		_contexts = contexts;
+    _contexts = contexts;
   }
 
   protected override void Execute(List<GameEntity> entities) {

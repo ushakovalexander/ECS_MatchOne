@@ -3,36 +3,36 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour {
 
-	private Contexts _contexts;
-	private Systems _systems;
+  private Contexts _contexts;
+  private Systems _systems;
 
-	void Start () {
-		_contexts = new Contexts();
+  void Start () {
+    _contexts = new Contexts();
 
-		_systems = CreateSystems(_contexts);
+    _systems = CreateSystems(_contexts);
 
-		_systems.Initialize();
-	}
+    _systems.Initialize();
+  }
 
-	void Update () {
-		_systems.Execute();
-	}
+  void Update () {
+    _systems.Execute();
+  }
 
-	private Systems CreateSystems(Contexts contexts) {
-		return new Feature("Game")
-			.Add(new EmitInputSystem(contexts))
-			.Add(new ProcessInputSystem(contexts))
+  private Systems CreateSystems(Contexts contexts) {
+    return new Feature("Game")
+      .Add(new EmitInputSystem(contexts))
+      .Add(new ProcessInputSystem(contexts))
 
-			.Add(new GameBoardSystem(contexts))
-			.Add(new FallSystem(contexts))
-			.Add(new FillSystem(contexts))
+      .Add(new GameBoardSystem(contexts))
+      .Add(new FallSystem(contexts))
+      .Add(new FillSystem(contexts))
 
-			.Add(new RemoveViewSystem(contexts))
-			.Add(new AddViewSystem(contexts))
-			.Add(new SetViewPositionSystem(contexts))
-			.Add(new AnimatePositionSystem(contexts))
+      .Add(new RemoveViewSystem(contexts))
+      .Add(new AddViewSystem(contexts))
+      .Add(new SetViewPositionSystem(contexts))
+      .Add(new AnimatePositionSystem(contexts))
 
-			.Add(new DestroySystem(contexts))
-			;
-	}
+      .Add(new DestroySystem(contexts))
+      ;
+  }
 }

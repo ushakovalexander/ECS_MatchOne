@@ -7,14 +7,14 @@ public class RemoveViewSystem : ReactiveSystem<GameEntity> {
   private Contexts _contexts;
 
   public RemoveViewSystem(Contexts contexts) : base(contexts.game){
-		_contexts = contexts;
+    _contexts = contexts;
   }
 
   protected override void Execute(List<GameEntity> entities) {
     foreach (var entity in entities) {
       DestroyView(entity.view);
-			entity.RemoveView();
-		}
+      entity.RemoveView();
+    }
   }
 
   protected override bool Filter(GameEntity entity)   {
