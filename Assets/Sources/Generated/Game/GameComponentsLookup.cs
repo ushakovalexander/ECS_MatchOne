@@ -12,17 +12,19 @@ public static class GameComponentsLookup {
     public const int Destroyed = 1;
     public const int GameBoard = 2;
     public const int GameBoardElement = 3;
-    public const int Movable = 4;
-    public const int Position = 5;
-    public const int View = 6;
+    public const int Interactive = 4;
+    public const int Movable = 5;
+    public const int Position = 6;
+    public const int View = 7;
 
-    public const int TotalComponents = 7;
+    public const int TotalComponents = 8;
 
     public static readonly string[] componentNames = {
         "Asset",
         "Destroyed",
         "GameBoard",
         "GameBoardElement",
+        "Interactive",
         "Movable",
         "Position",
         "View"
@@ -33,6 +35,7 @@ public static class GameComponentsLookup {
         typeof(DestroyedComponent),
         typeof(GameBoardComponent),
         typeof(GameBoardElementComponent),
+        typeof(InteractiveComponent),
         typeof(MovableComponent),
         typeof(PositionComponent),
         typeof(ViewComponent)

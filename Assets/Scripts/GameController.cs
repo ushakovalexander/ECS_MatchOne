@@ -20,6 +20,8 @@ public class GameController : MonoBehaviour {
 
 	private Systems CreateSystems(Contexts contexts) {
 		return new Feature("Game")
+			.Add(new EmitInputSystem(contexts))
+			.Add(new ProcessInputSystem(contexts))
 
 			.Add(new GameBoardSystem(contexts))
 			.Add(new FallSystem(contexts))
@@ -28,6 +30,9 @@ public class GameController : MonoBehaviour {
 			.Add(new RemoveViewSystem(contexts))
 			.Add(new AddViewSystem(contexts))
 			.Add(new SetViewPositionSystem(contexts))
+			.Add(new AnimatePositionSystem(contexts))
+
+			.Add(new DestroySystem(contexts))
 			;
 	}
 }

@@ -16,7 +16,7 @@ public class DestroySystem : ReactiveSystem<GameEntity> {
   }
 
   protected override bool Filter(GameEntity entity)   {
-    return entity.isEnabled;
+    return entity.isDestroyed;
   }
 
   protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)   {

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using DG.Tweening;
 using Entitas;
 using UnityEngine;
 
@@ -11,7 +12,7 @@ public class RemoveViewSystem : ReactiveSystem<GameEntity> {
 
   protected override void Execute(List<GameEntity> entities) {
     foreach (var entity in entities) {
-      //TODO: destroy view
+      DestroyView(entity.view);
 			entity.RemoveView();
 		}
   }
@@ -22,5 +23,18 @@ public class RemoveViewSystem : ReactiveSystem<GameEntity> {
 
   protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)   {
     return context.CreateCollector(GameMatcher.Asset.Removed(), GameMatcher.Destroyed.Added());
+  }
+
+  private void DestroyView(ViewComponent viewComponent) {
+    var gameObject = viewComponent.gameObject;
+    var spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+    var color = spriteRenderer.color;
+    color.a = 0f;
+    spriteRenderer.material.DOColor(color, 0.2f);
+    gameObject.transform
+              .DOScale(Vector3.one * 1.5f, 0.2f)
+              .OnComplete(() => {
+                  Object.Destroy(gameObject);
+              });
   }
 }

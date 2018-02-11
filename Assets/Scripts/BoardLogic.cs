@@ -4,7 +4,7 @@ using UnityEngine;
 public static class BoardLogic {
 
 	public static int GetNextEmptyRow(GameContext context, Vector2 position) {
-		position.y = -1;
+		position.y -= 1;
 		while(position.y >= 0 && GetEntitiesWithPositionCount(context, position) == 0) {
 			position.y -= 1;
 		}
@@ -15,7 +15,7 @@ public static class BoardLogic {
 		List<GameEntity> result = new List<GameEntity>();
 		var entities = context.GetEntities();
 		foreach (var entity in entities) {
-			if(entity != null && entity.position.value == position) {
+			if(entity != null && entity.hasPosition && entity.position.value.x == position.x && entity.position.value.y == position.y) {
 				result.Add(entity);
 			}
 		}
@@ -23,6 +23,7 @@ public static class BoardLogic {
 	}
 
 	public static int GetEntitiesWithPositionCount(GameContext context, Vector2 position) {
-		return GetEntitiesWithPosition(context, position).Count;
+		int count =  GetEntitiesWithPosition(context, position).Count;
+		return count;
 	}
 }

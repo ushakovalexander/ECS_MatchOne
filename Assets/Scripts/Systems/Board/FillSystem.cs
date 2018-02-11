@@ -13,14 +13,14 @@ public class FillSystem : ReactiveSystem<GameEntity>
 
   protected override void Execute(List<GameEntity> entities) {
     var board = _contexts.game.gameBoard;
-		for (int column = 0; column < board.columns; column++) {
-			var position = new Vector2(column, board.rows);
-			var nextRowPosition = BoardLogic.GetNextEmptyRow(_contexts.game, position);
-			while (nextRowPosition != board.rows) {
-				ContextExtensions.CreateRandomPiece(_contexts.game, column, nextRowPosition);
-				nextRowPosition = BoardLogic.GetNextEmptyRow(_contexts.game, position);
-			}
-		}
+    for (int column = 0; column < board.columns; column++) {
+      var position = new Vector2(column, board.rows);
+      var nextRowPosition = BoardLogic.GetNextEmptyRow(_contexts.game, position);
+      while(nextRowPosition != board.rows) {
+        _contexts.game.CreateRandomPiece(column, nextRowPosition);
+        nextRowPosition = BoardLogic.GetNextEmptyRow(_contexts.game, position);
+      }
+    }
   }
 
   protected override bool Filter(GameEntity entity) {

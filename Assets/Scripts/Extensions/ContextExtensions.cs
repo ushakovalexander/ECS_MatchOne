@@ -13,8 +13,7 @@ public static class ContextExtensions {
 
     public static GameEntity CreateGameBoard(this GameContext context) {
         var entity = context.CreateEntity();
-        entity.AddGameBoard(8, 9);
-
+        entity.AddGameBoard(10, 10);
         return entity;
     }
 
@@ -22,7 +21,7 @@ public static class ContextExtensions {
         var entity = context.CreateEntity();
         entity.isGameBoardElement = true;
         entity.isMovable = true;
-        //entity.isInteractive = true;
+        entity.isInteractive = true;
         entity.AddPosition(new Vector2(x, y));
         entity.AddAsset(_pieces[Random.Range(0, _pieces.Length)]);
         return entity;
