@@ -1,0 +1,9 @@
+/.vscode
+/*.csproj
+/Temp
+/Library
+/*.sln
+.DS_Store
+/Entitas.properties
+/User.properties
+/obj/Debug
