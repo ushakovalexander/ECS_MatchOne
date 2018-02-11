@@ -3,7 +3,7 @@
 public static class ContextExtensions {
 
     static readonly string[] _pieces = {
-       "Piece0",
+      "Piece0",
       "Piece1",
       "Piece2",
       "Piece3",

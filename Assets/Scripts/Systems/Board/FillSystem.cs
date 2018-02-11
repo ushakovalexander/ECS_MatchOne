@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using Entitas;
 using UnityEngine;
 
-public class FillSystem : ReactiveSystem<GameEntity>
-{
-   private Contexts _contexts;
+public class FillSystem : ReactiveSystem<GameEntity> {
+  private Contexts _contexts;
 
   public FillSystem(Contexts contexts) : base(contexts.game) {
     _contexts = contexts;

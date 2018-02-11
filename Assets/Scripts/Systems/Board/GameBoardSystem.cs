@@ -4,7 +4,6 @@ using Entitas;
 using UnityEngine;
 
 public class GameBoardSystem : ReactiveSystem<GameEntity>, IInitializeSystem {
-
   private Contexts _contexts;
   private IGroup<GameEntity> _boardElements;
 

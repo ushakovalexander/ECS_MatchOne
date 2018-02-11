@@ -2,7 +2,6 @@
 using UnityEngine;
 
 public class GameController : MonoBehaviour {
-
   private Contexts _contexts;
   private Systems _systems;
 
